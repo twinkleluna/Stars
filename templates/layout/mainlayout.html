@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content=""width="device-width,initial-scale=1">
+    <title>Stars</title>
+    <link typt="text/css" rel="stylesheet" href="/static/css/board/normalize.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/board/login.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/board/component.css">
+
+    <link typt="text/css" rel="stylesheet" href="/static/css/question/mainlayout-component.css">
+</head>
+<body>
+        <div class="container login-bg">
+          <div class="content">
+              <div id="large-header" class="large-header" style="height:647px;">
+                  <header >
+                       <h1 align="center" style="color:pink;font-style:italic;font-family:'Times New Roman',Georgia,Serif;font-size: 50px;text-shadow: 5px 5px 5px mediumpurple;">SHY CTF</h1>
+                  </header>
+              <canvas id="login-canvas" width="271" height="647"></canvas>
+              <div class="mainlayout-navigation">
+                  <ul class="mainlayout-ul">
+                    <li class="mainlayout-li"><a href="/question/question">试题选择</a></li>
+                    <li class="mainlayout-li"><a href="/information/information">赛事播报</a></li>
+                    <li class="mainlayout-li"><a href="/rank/rank">实时排行</a></li>
+                    <li class="mainlayout-li"><a href="/discuss/makecomment">自由讨论</a></li>
+               </ul>
+              </div>
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+  </div>
+          </div>
+        </div>
+</body>
+<script type="text/javascript" src="/static/js/board/TweenLite.min.js"></script>
+<script type="text/javascript" src="/static/js/board/EasePack.min.js"></script>
+<script type="text/javascript" src="/static/js/board/rAF.js"></script>
+<script type="text/javascript" src="/static/js/board/specialEffect.js"></script>
+
+</html>

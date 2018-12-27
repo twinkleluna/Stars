@@ -1,0 +1,38 @@
+{% extends "layout/layout.html"  %}
+{% load staticfiles %}
+{% block content %}
+                  <canvas id="login-canvas" width="271" height="647"></canvas>
+                  <div class="logo_box">
+                      <h3>欢迎注册</h3>
+                      <form action="/board/register" name="login" method="post">
+                          {% csrf_token %}
+                          <input type="hidden" name="next" value="/board/login">
+                          <div class="input_outer">
+                              <span class="u_user"> </span>
+                              <input name="username" class="text" style="color:#FFFFFF !important" type="text" placeholder="请输入注册用户">
+                          </div>
+                          <div class="input_outer">
+                              <span class="us_uer"></span>
+                              <input name="password" class="text" style="color: #FFFFFF !important;position:absolute;z-index:100;" value type="password" placeholder="请输入密码">
+                          </div>
+                           <div class="input_outer">
+                              <span class="us_uer"></span>
+                              <input name="password" class="text" style="color: #FFFFFF !important;position:absolute;z-index:100;" value type="password" placeholder="请再次输入密码">
+                          </div>
+                          <div class="checkcode_outer">
+                              <div class="input_outer" style="width:150px;">
+                                  <input name="checkcode" class="checkcode" style="color:mediumpurple !important;"
+                                   type="text" placeholder="验证码">
+                              </div>
+                              <div class="checkimg_outer">
+                                  <img id="checkimg" class="checkimg" src="/board/checkimg"
+                                       onclick="javascript:document.getElementById('checkimg').src='/board/checkimg?'+Math.random();">
+                              </div>
+                          </div>
+                          <div class="mb2">
+                              <a class="act-but submit" href="javascript:document.login.submit();" style="color:#FFFFFF">注册</a>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+{% endblock %}

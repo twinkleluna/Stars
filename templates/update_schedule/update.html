@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head >
+	<meta charset="utf-8">
+    <title>Update_Schedule</title>
+    <link type="text/css" rel="stylesheet" href="/static/css/board/normalize.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/board/login.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/board/component.css">
+    <link rel="stylesheet" href="/static/css/lib/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/information/mainlayout-component.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/information/basics.css">
+<body style="background:url('../../static/images/background-board.jpg');background-size:100% 903%;opacity:0.7;">
+     <div class="container login-bg">
+         <div class="content">
+                  <header >
+                      <div style="margin:5% 0% 0 0;">
+                          <canvas style="height:95px;margin:-95px 0px 0 0;float:right;background:url('../../static/images/01.png');background-position: bottom right;background-repeat: no-repeat;background-size:40% 40%;"></canvas>
+                        <div align="right" style="float:right;">
+                          <button class="basebutton"  style="width:65px;height:30px;border:1px solid #c9e2b3;background-color: #B8DDFF;" onclick="javascript:window.location.href='../../board/logout'">退出</button>
+                        </div>
+                      </div>
+                       <h1 align="center" style="margin-top:-2%;color:hotpink;font-style:italic;font-family:'Times New Roman',Georgia,Serif;font-size: 50px;text-shadow: 5px 5px 5px rebeccapurple;">STARS</h1>
+                  </header>
+              <div class="mainlayout-navigation">
+                  <ul class="mainlayout-ul">
+                      <br/>
+                    <li class="mainlayout-li" style="margin:-20px 0 0 0;"><a href="/class_schedule/show_schedule">已选课程</a></li>
+                    <li class="mainlayout-li" style="margin:-20px 0 0 0;"><a href="/class_schedule/show_schedule">课程表图</a></li>
+                    <li class="mainlayout-li" style="margin:-20px 0 0 0;"><a href="/update_schedule/update_schedule">增删课程</a></li>
+                      <li class="mainlayout-li" style="margin:-20px 0 0 0;"><a href="/information/information">个人信息</a></li>
+               </ul>
+              </div>
+             <div id="question-center"style="display:flex;">
+                 <div style="height:1500px;width:100%;overflow-y: auto;">
+                 <div style="width:45%">
+                     <form class="information" action="/update_schedule/add_course" name="add_course" method="post">
+                           {% csrf_token %}
+                     <ul>
+                          <li>
+                              <lable for="cname"> 课程名：</lable>
+                              <input name="cname" class="text" style="color:#66C1E4 !important" type="text">
+                          </li>
+                          <li>
+                              <lable for="cno"> 课程号：</lable>
+                              <input name="cno" class="text" style="color:#66C1E4 !important" >
+                          </li>
+                          <li>
+                              <lable for="teacher">任课教师：</lable>
+                              <input name="teacher" class="text" style="color:#66C1E4 !important" type="text">
+                          </li>
+                          <li>
+                              <lable for="weekday">星期：</lable>
+                              <input name="weekday" class="text" style="color:#66C1E4 !important" type="text" placeholder="请输入阿拉伯数字1到5">
+                          </li>
+                           <li>
+                              <lable for="lesson1">节次1：</lable>
+                              <input name="lesson1" class="text" style="color:#66C1E4 !important" type="text" placeholder="请输入阿拉伯数字0到12">
+                          </li>
+                           <li>
+                              <lable for="lesson2">节次2：</lable>
+                              <input name="lesson2" class="text" style="color:#66C1E4 !important" type="text" placeholder="请输入阿拉伯数字0到12">
+                          </li>
+                           <li>
+                              <lable for="lesson3">节次3：</lable>
+                              <input name="lesson3" class="text" style="color:#66C1E4 !important" type="text" placeholder="请输入阿拉伯数字0到12">
+                          </li>
+                          <li>
+                              <lable for="lesson4">节次4：</lable>
+                              <input name="lesson4" class="text" style="color:#66C1E4 !important" type="text" placeholder="请输入阿拉伯数字0到12">
+                          </li>
+                          <li>
+                             <div class="mb2">
+                              <a class="act-but submit" href="javascript:document.add_course.submit();" style="width:70%;float:left;color:#66C1E4">确认添加</a>
+                             </div>
+                          </li>
+                     </ul>
+                 </form>
+                 </div>
+                 <div style="float:right;width:45%">
+                     <form class="information" action="/update_schedule/sub_course" name="sub_course" method="post">
+                           {% csrf_token %}
+                     <ul>
+                          <li>
+                              <lable for="cno"> 课程号：</lable>
+                              <input name="cno" class="text" style="color:#66C1E4 !important" >
+                          </li>
+                       <li>
+                          <div class="mb2">
+                              <a class="act-but submit" href="javascript:document.sub_course.submit();" style="width:70%;float:left;color:#66C1E4">确认删除</a>
+                          </div>
+                       </li>
+                     </ul>
+                 </form>
+                 </div>
+             </div>
+             </div>
+                 </div>
+     </div>
+</body>
+<script src="/static/js/lib/jquery.min.js"></script>
+<script src="/static/js/lib/jquery.cookie.js"></script>
+<script src="/static/js/lib/bootstrap.min.js"></script>
+<script src="/static/js/lib/angular.min.js"></script>
+<script src="/static/js/lib/ng-file-upload-shim.min.js"></script>
+<script src="/static/js/lib/ng-file-upload.min.js"></script>
+<script src="/static/js/lib/ajaxfileupload.js"></script>
+<script>
+
+</script>
+</html>

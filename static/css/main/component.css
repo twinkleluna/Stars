@@ -1,0 +1,51 @@
+     #main-div
+{
+    margin-left: -600px;
+	margin-top: -150px;
+    width: 1400px;
+	height: 800px;
+	padding: 35px;
+	position: absolute;
+	left:40%;
+	top:40%;
+}
+#question
+{
+    margin:370px 0px 80px 16%;
+}
+#question2
+{
+    margin:340px 0px 100px -15%;
+    width:180px;
+    height:130px;
+	background-color:rgb(33,226,255);
+	border:3px solid lightskyblue;
+    border-radius:80px;
+}
+#rank
+{
+    margin:370px 0px 80px 16%;
+}
+#rank2
+{
+    margin:340px 0px 100px -15%;
+    width:180px;
+    height:130px;
+	background-color:rgb(33,226,255);
+	border:3px solid lightskyblue;
+    border-radius:80px;
+}
+
+#discuss
+{
+    margin:370px 0 80px 16%;
+}
+#discuss2
+{
+    margin:340px 0 100px -15%;
+    width:180px;
+    height:130px;
+	background-color:rgb(33,226,255);
+	border:3px solid lightskyblue;
+    border-radius:80px;
+}

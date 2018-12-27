@@ -1,0 +1,236 @@
+{% extends "layout/layout.html"  %}
+{% load staticfiles %}
+{% block content %}
+
+      <canvas id="login-canvas" width="271" height="647"></canvas>
+    <div id="main-div" >
+        <div id="app" v-cloak>
+		<div class="box" :style="{width:size.x+'px',height:size.z+'px'}">
+			<div id="top" :style="styleTop"></div>
+			<div id="bottom" :style="styleBottom"></div>
+			<div id="left" :style="styleLeft"></div>
+			<div id="right" :style="styleRight"></div>
+			<div id="pre" :style="stylePre"></div>
+			<div id="back" :style="styleBack"></div>
+		</div>
+	    </div>
+        <div style="margin-top: -25%;">
+        <canvas id="question" style="width:180px;height:130px;background-color:lightgoldenrodyellow;border:5px solid lightgray;border-radius:80px;"></canvas>
+        <canvas id="question2" onclick="javascript:window.location.href='../../board/login'" ></canvas>
+        <canvas id="rank" style="width:180px;height:130px;background-color:mediumpurple;border:5px solid lightgray;border-radius:80px;"></canvas>
+        <canvas id="rank2" onclick="javascript:window.location.href='../../board/login'"></canvas>
+        <canvas id="discuss" style="width:180px;height:130px;background-color:lightpink;border:5px solid lightgray;border-radius:80px;"></canvas>
+        <canvas id="discuss2" onclick="javascript:window.location.href='../../board/login'" ></canvas>
+        </div>
+    </div>
+<script>
+   var canvasQ=document.getElementById("question2");
+   var textQ="CTF赛场";
+   var cq = canvasQ.getContext('2d');
+   cq.textAlign='center';
+   cq.font='40px Arial';
+   cq.fillText(textQ,150,85);
+
+   var canvasR=document.getElementById("rank2");
+   var textR="实时排名";
+   var cr= canvasR.getContext('2d');
+   cr.textAlign='center';
+   cr.font='40px Arial';
+   cr.fillText(textR,150,85);
+
+   var canvasD=document.getElementById("discuss2");
+   var textD="自由讨论";
+   var cd= canvasD.getContext('2d');
+   cd.textAlign='center';
+   cd.font='40px Arial';
+   cd.fillText(textD,150,85);
+</script>
+
+    <script src="../../static/js/jquery-1.11.3.min.js"></script>
+<script src="../../static/js/vue.min.js"></script>
+
+<script type="text/javascript">
+	let x = '400', y = '400', z = '250';
+	let vm = new Vue({
+		el:'#app',
+		data:{
+			size:{
+				x:x,
+				y:y,
+				z:z
+			},
+			styleLeft:{
+				backgroundImage: `url(../../static/images/1.png)`,
+				transform: '',
+				width:'',
+				height:''
+			},
+			styleRight:{
+				backgroundImage: `url(../../static/images/2.png)`,
+				transform: ``,
+				width:'',
+				height:''
+			},
+			styleTop:{
+				backgroundImage: `url(../../static/images/3.png)`,
+				transform: ``,
+				width:'',
+				height:''
+			},
+			styleBottom:{
+				backgroundImage: `url(../../static/images/4.png)`,
+				transform: ``,
+				width:'',
+				height:''
+
+			},
+			stylePre:{
+				backgroundImage: `url(../../static/images/5.png)`,
+				transform: ``,
+				width:'',
+				height:''
+			},
+			styleBack:{
+				backgroundImage: `url(../../static/images/6.png)`,
+				transform: ``,
+				width:'',
+				height:''
+
+			}
+
+		},
+		computed:{
+			preZ(){
+				return Math.floor(this.size.y/2) + 'px'
+			},
+			backZ(){
+				return Math.floor(this.size.y/2) + 'px'
+			},
+			leftZ(){
+				return Math.floor(this.size.y/2) + 'px'
+			},
+			rightZ(){
+				return Math.floor(this.size.x - this.size.y/2) + 'px'
+			},
+			topZ(){
+				return Math.floor(this.size.y/2) + 'px'
+			},
+			bottomZ(){
+				return Math.floor(this.size.z - this.size.y/2) + 'px'
+			}
+		},
+		created(){
+			this.creat()
+		},
+		watch:{
+			size:{
+				handler(){
+					this.creat()
+				},
+				deep:true
+			}
+		},
+		methods:{
+			creat(){
+				this.styleLeft.width = this.styleRight.width = this.size.y + 'px';
+				this.styleLeft.height = this.styleRight.height = this.size.z + 'px';
+				this.styleTop.width = this.styleBottom.width = this.size.x + 'px';
+				this.styleTop.height = this.styleBottom.height = this.size.y + 'px';
+				this.stylePre.width = this.styleBack.width = this.size.x + 'px';
+				this.stylePre.height = this.styleBack.height = this.size.z + 'px';
+
+				this.styleLeft.transform = `rotateY(-90deg) translateZ(${this.leftZ})`;
+				this.styleRight.transform = `rotateY(90deg) translateZ(${this.rightZ})`;
+				this.styleTop.transform = `rotateX(90deg) translateZ(${this.topZ})`;
+				this.styleBottom.transform = `rotateX(-90deg) translateZ(${this.bottomZ})`;
+				this.stylePre.transform = `translateZ(${this.preZ})`;
+				this.styleBack.transform = `rotateY(180deg) translateZ(${this.backZ})`;
+			},
+			uploadImg(event,n){
+			    var _name, _fileName, personsFile, _img;
+			    // console.log(event)
+			    _name = event.target.value;
+
+			    // console.log(_name)
+			    _fileName = _name.substring(_name.lastIndexOf(".") + 1).toLowerCase();
+			    if (_fileName !== "png" && _fileName !== "jpg") {
+			        alert("上传图片格式不正确，请重新上传");
+			    } else {
+			    	let url = `url(${window.URL.createObjectURL(event.target.files[0])})`
+
+			        switch(n)
+					{
+						case 1:
+						  this.styleTop.backgroundImage = url
+						  break;
+						case 2:
+						  this.styleBottom.backgroundImage = url
+						  break;
+						case 3:
+							this.styleLeft.backgroundImage = url
+							break;
+						case 4:
+							this.styleRight.backgroundImage = url
+							break;
+						case 5:
+
+							this.stylePre.backgroundImage = url
+							break;
+						case 6:
+							this.styleBack.backgroundImage = url
+							break;
+						default:
+
+					}
+			    }
+			}
+		}
+	})
+
+
+</script>
+<script src="../../static/js/jquery-touchrotate.js"></script>
+<script type="text/javascript">
+	$('.box').touchrotate({
+		//初始3D旋转
+		rotateX: -15,
+		rotateY: 15,
+		//数值越小 , 旋转速度越快
+		speedX: 2,
+		speedY: 2,
+		// 旋转的倍数, 越大旋转的圈数越多
+		multipleX: 50,
+		multipleY: 50,
+		// 动画持续的时间, 单位是S
+		time: 2,
+		//模式 0:表示匀速运动 , 运动中途可以重新开始 , 1表示先加速后减速(动画过程中不可滑动,体验效果差)
+		model: 0
+	});
+</script>
+
+<style type="text/css">
+	[v-clock]{display: none}
+	.box {
+		height: 400px;
+		width: 400px;
+		margin: 100px auto;
+		position: relative;
+		transform: rotateX(0deg) rotateY(0deg);
+		transform-style: preserve-3d;
+		cursor: move;
+	}
+
+	.box div {
+		position: absolute;
+		left: 0;
+		right: 0;
+		background-size: cover;
+		background-position: center;
+	}
+	.picbtn{
+		margin:  0 auto;
+		text-align: center;
+	}
+</style>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+.information{
+    margin:3% 0 0 8%;
+    width:40%;
+    float:left;
+}
+.information ul {
+    width:750px;
+    list-style-type:none;
+    list-style-position:outside;
+    margin:0;
+    padding:0;
+}
+.information li{
+    height:70px;
+    padding:12px;
+    border-bottom:1px solid #89d7ff;
+    width:80%;
+    position:relative;
+}
+.information li:first-child, .information li:last-child {
+    border-bottom:1px solid #89d7ff;
+    width:80%;
+}
+.information label {
+
+    display:inline-block;
+    float:left;
+
+}
+.information input {
+     border:1px solid #e4b9c0;
+     border-radius:10px;
+}
+.information textarea {
+    border:1px solid #e4b9c0;
+     border-radius:10px;
+}
+.photoarea{
+    margin:0 0 0 8%;
+    width:40%;
+    float:right;
+}
+

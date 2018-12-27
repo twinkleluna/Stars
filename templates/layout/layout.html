@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content=""width="device-width,initial-scale=1">
+    <title>Stars</title>
+    <link type="text/css" rel="stylesheet" href="/static/css/board/normalize.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/board/login.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/board/component.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/main/component.css">
+</head>
+<body >
+        <div class="container login-bg">
+          <div class="content">
+              <div id="large-header" class="large-header" style="height:647px">
+                 <div style="margin:4% 3% 0 0;">
+                     <canvas style="height:95px;margin:-95px 25px 0 0;float:right;background:url('../../static/images/01.png');background-position: bottom right;background-repeat: no-repeat;background-size:40% 40%;"></canvas>
+                   <div align="right" style="float:right;">
+                      <button class="basebutton"  style="width:65px;height:30px;border:1px solid #c9e2b3;background-color: #B8DDFF;" onclick="javascript:window.location.href='../../board/login'">登录</button>
+                   </div>
+                   <div align="right">
+                      <button class="basebutton"  style="width:65px;height:30px;border:1px solid #c9e2b3;background-color: #B8DDFF;" onclick="javascript:window.location.href='../../board/register'">注册</button>
+                   </div>
+                  </div>
+                  <header>
+                       <h1 align="center" style="font-weight: lighter;margin-top:-2%;color:hotpink;font-style:italic;font-family:'Times New Roman',Georgia,Serif;font-size: 50px;text-shadow: 5px 5px 5px rebeccapurple;">STARS</h1>
+                  </header>
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+  </div>
+          </div>
+        </div>
+</body>
+<script type="text/javascript" src="/static/js/board/TweenLite.min.js"></script>
+<script type="text/javascript" src="/static/js/board/EasePack.min.js"></script>
+<script type="text/javascript" src="/static/js/board/rAF.js"></script>
+<script type="text/javascript" src="/static/js/board/specialEffect.js"></script>
+</html>

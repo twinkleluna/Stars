@@ -1,0 +1,34 @@
+.mainlayout-navigation{
+    background-image:url('../../images/ico-test.PNG');
+    background-repeat: repeat;
+    background-size: 80px 40px;
+    width:920px;
+    height:40px;
+      position:fixed;
+     _position: absolute;
+	left: 50%;
+	top:45%;
+	margin-left: -445px;
+	margin-top: -220px;
+}
+ .mainlayout-ul{list-style:none;}
+ .mainlayout-li{float:left;width:200px;height:40px;background-image:url('../../images/ico-li.PNG');background:#CCC;margin-left:0px;margin-top:-17px;line-height:40px;}
+ a{display:block;text-align:center;height:40px;background-image:url('../../images/ico-li.PNG');}
+ a:link{color:#666;background: no-repeat 200px 40px;text-decoration:none;}
+ a:visited{color:#666;text-decoration:underline;}
+ a:hover{ font-weight:bold;text-decoration:none;background:lightskyblue no-repeat 200px 40px;}
+ #question-center{
+     background:url('../../images/background-question.jpg');
+     opacity:0.8;
+     height:1000px!important;
+	width: 1000px;
+     position: fixed;
+     _position:absolute;
+	left: 50%;
+	top:45%;
+	margin-left: -500px;
+	margin-top: -170px;
+     overflow-y:auto!important;
+ }
+
+

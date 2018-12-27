@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head >
+	<meta charset="utf-8">
+    <title>Information</title>
+    <link type="text/css" rel="stylesheet" href="/static/css/board/normalize.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/board/login.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/board/component.css">
+    <link rel="stylesheet" href="/static/css/lib/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/information/mainlayout-component.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/information/basics.css">
+<body style="background:url('../../static/images/background-board.jpg');background-size:100% 903%;opacity:0.7;">
+     <div class="container login-bg">
+         <div class="content">
+                  <header >
+                      <div style="margin:5% 0% 0 0;">
+                          <canvas style="height:95px;margin:-95px 0px 0 0;float:right;background:url('../../static/images/01.png');background-position: bottom right;background-repeat: no-repeat;background-size:40% 40%;"></canvas>
+                        <div align="right" style="float:right;">
+                          <button class="basebutton"  style="width:65px;height:30px;border:1px solid #c9e2b3;background-color: #B8DDFF;" onclick="javascript:window.location.href='../../board/logout'">退出</button>
+                        </div>
+                      </div>
+                       <h1 align="center" style="margin-top:-2%;color:hotpink;font-style:italic;font-family:'Times New Roman',Georgia,Serif;font-size: 50px;text-shadow: 5px 5px 5px rebeccapurple;">STARS</h1>
+                  </header>
+              <div class="mainlayout-navigation">
+                  <ul class="mainlayout-ul">
+                      <br/>
+                    <li class="mainlayout-li" style="margin:-20px 0 0 0;"><a href="/class_schedule/show_schedule">已选课程</a></li>
+                    <li class="mainlayout-li" style="margin:-20px 0 0 0;"><a href="/class_schedule/show_schedule">课程表图</a></li>
+                    <li class="mainlayout-li" style="margin:-20px 0 0 0;"><a href="/update_schedule/update_schedule">增删课程</a></li>
+                      <li class="mainlayout-li" style="margin:-20px 0 0 0;"><a href="/information/information">个人信息</a></li>
+               </ul>
+              </div>
+             <div id="question-center"style="display:flex;">
+                 <form class="information" action="/information/information" name="information" method="post">
+                           {% csrf_token %}
+                     <ul>
+                          <li>
+                              <lable for="sname"> 姓名：</lable>
+                              <input name="sname" readonly='true' class="text" style="color:#66C1E4 !important" type="text" placeholder=" {{sname}}"></input>
+                          </li>
+                          <li>
+                              <lable for="sno"> 学号：</lable>
+                              <input name="sno" class="text" style="color:#66C1E4 !important" type="text" placeholder=" {{sno }}">
+                          </li>
+                          <li>
+                              <lable for="sex"> 性别：</lable>
+                              <input name="sex" class="text" style="color:#66C1E4 !important" type="text" placeholder=" {{ sex }}">
+                          </li>
+                          <li>
+                              <lable for="signature"> 个性签名：</lable>
+                              <textarea name="signature" cols="40" rows="2" style="color:#66C1E4 !important" placeholder="{{signature }}"></textarea>
+                          </li>
+                          <li>
+                              <lable for="email">邮箱：</lable>
+                              <input name="email" class="text" style="color:#66C1E4 !important" type="text" placeholder="{{ email }}">
+                          </li>
+                       <li>
+                          <div class="mb2">
+                              <a class="act-but submit" href="javascript:document.information.submit();" style="width:70%;float:left;color:#66C1E4">确认修改</a>
+                          </div>
+                       </li>
+                     </ul>
+                 </form>
+                 <div class="photoarea">
+                      {% csrf_token %}
+                     <img  style="width:200px;margin:30px 0 0 150px;" src="../../static/photos/{{ photo}}" alt="photo">
+                     <input id="submitphoto" style="float:right" name="submitphoto" type="file"  class="ng-pristine ng-valid ng-scope">
+                     <button style="width:100px;height:30px;margin:10px 0 0 195px;background:#c9e2b3"  id="uploadphoto" value="导入&nbsp;">上传头像</button>
+                 </div>
+             </div>
+                 </div>
+     </div>
+</body>
+
+<script src="/static/js/lib/jquery.min.js"></script>
+<script src="/static/js/lib/jquery.cookie.js"></script>
+<script src="/static/js/lib/bootstrap.min.js"></script>
+<script src="/static/js/lib/angular.min.js"></script>
+<script src="/static/js/lib/ng-file-upload-shim.min.js"></script>
+<script src="/static/js/lib/ng-file-upload.min.js"></script>
+<script src="/static/js/lib/ajaxfileupload.js"></script>
+<script>
+
+$(function() {
+    //文件类型过滤
+    $("#uploadphoto").click(function () {
+        ajaxFileUpload();
+    })
+});
+function ajaxFileUpload() {
+       $.ajaxFileUpload({
+            type:'POST',
+            url:'/information/submitphoto',
+            processData:false,
+            contentType:false,
+            secureuri: false,
+            fileElementId: 'submitphoto',
+            dataType:'JSON',
+            success: function(data, status) {
+                {#alert(data)#}
+                if(data==0)
+                    alert("Successfully upload!");
+                else if(data==2)
+                    alert("请先录入您的个人信息！")
+                else if(data==3)
+                    alert("上传重复！")
+                else
+                    alert("请上传jpg和png格式的图片！")
+            },
+            error: function(data, status, e) {
+                alert(e);
+            }
+        });
+}
+
+</script>
+</html>
