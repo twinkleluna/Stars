@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Course</title>
+
+    <script src="/static/js/class_schedule/Timetables.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="/static/css/board/normalize.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/board/login.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/board/component.css">
+    <link rel="stylesheet" href="/static/css/lib/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/information/mainlayout-component.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/information/basics.css">
+
+
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap/local.css" />
+
+    <script type="text/javascript" src="/static/js/bootstrap/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap/bootstrap.min.js"></script>
+
+    <!-- you need to include the shieldui css and js assets in order for the charts to work -->
+    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
+    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+    <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
+    <style>
+    {#.panel-body li {#}
+    {#        border-bottom:1px solid #89d7ff;#}
+    {#    }#}
+    .panel-body{
+    }
+    .panel-body div:first-child .panel-body li:last-child {
+        border-bottom:1px solid #89d7ff;
+        width:80%;
+     }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="new_timetable.html" style="margin-top:-2%;color:hotpink;font-style:italic;font-family:'Times New Roman',Georgia,Serif;font-size: 30px;">STARS</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active"><a href="/class_schedule/show_new_schedule"><i class="fa fa-bullseye"></i> Timetable</a></li>
+                    <li><a href="/update_schedule/update_schedule"><i class="fa fa-tasks"></i> Update Schedule</a></li>
+                    <li><a href="/information/information"><i class="fa fa-globe"></i>Information</a></li>
+                    <li><a href="forms.html"><i class="fa fa-list-ol"></i> Forms</a></li>
+                    <li><a href="typography.html"><i class="fa fa-font"></i> Typography</a></li>
+                    <li><a href="bootstrap-elements.html"><i class="fa fa-list-ul"></i> Bootstrap Elements</a></li>
+                    <li><a href="/information/information"><i class="fa fa-table"></i > Information</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right navbar-user">
+                    <li class="dropdown messages-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Messages <span class="badge">2</span> <b class="caret"></b></a>
+                    </li>
+                   <li >
+                       <a href="/board/logout"><i class="fa fa-user"></i> Logout</a>
+                   </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="page-wrapper">
+            <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Personal info</h3>
+             </div>
+            <div class="panel-body">
+                 <form class="information" action="/information/information" name="information" method="post">
+                           {% csrf_token %}
+                     <ul>
+                          <li>
+                              <lable for="sname"> 姓名：</lable>
+                              <input name="sname" readonly='true' class="text" style="color:#66C1E4 !important" type="text" placeholder=" {{sname}}"></input>
+                          </li>
+                          <li>
+                              <lable for="sno"> 学号：</lable>
+                              <input name="sno" class="text" style="color:#66C1E4 !important" type="text" placeholder=" {{sno }}">
+                          </li>
+                          <li>
+                              <lable for="sex"> 性别：</lable>
+                              <input name="sex" class="text" style="color:#66C1E4 !important" type="text" placeholder=" {{ sex }}">
+                          </li>
+                          <li>
+                              <lable for="signature"> 个性签名：</lable>
+                              <textarea name="signature" cols="40" rows="2" style="color:#66C1E4 !important" placeholder="{{signature }}"></textarea>
+                          </li>
+                          <li>
+                              <lable for="email">邮箱：</lable>
+                              <input name="email" class="text" style="color:#66C1E4 !important" type="text" placeholder="{{ email }}">
+                          </li>
+                       <li>
+                          <div class="mb2">
+                              <a class="act-but submit" href="javascript:document.information.submit();" style="width:70%;float:left;color:#66C1E4">确认修改</a>
+                          </div>
+                       </li>
+                     </ul>
+                 </form>
+                 <div class="photoarea">
+                      {% csrf_token %}
+                     <img  style="width:200px;margin:30px 0 0 150px;" src="../../static/photos/{{ photo}}" alt="photo">
+                     <input id="submitphoto" style="float:right" name="submitphoto" type="file"  class="ng-pristine ng-valid ng-scope">
+                     <button style="width:100px;height:30px;margin:10px 0 0 195px;background:#c9e2b3"  id="uploadphoto" value="导入&nbsp;">上传头像</button>
+                 </div>
+            </div>
+            </div>
+             </div>
+        </div>
+    </div>
+<script src="/static/js/lib/jquery.min.js"></script>
+<script src="/static/js/lib/jquery.cookie.js"></script>
+<script src="/static/js/lib/bootstrap.min.js"></script>
+<script src="/static/js/lib/angular.min.js"></script>
+<script src="/static/js/lib/ng-file-upload-shim.min.js"></script>
+<script src="/static/js/lib/ng-file-upload.min.js"></script>
+<script src="/static/js/lib/ajaxfileupload.js"></script>
+<script>
+
+$(function() {
+    //文件类型过滤
+    $("#uploadphoto").click(function () {
+        ajaxFileUpload();
+    })
+});
+function ajaxFileUpload() {
+       $.ajaxFileUpload({
+            type:'POST',
+            url:'/information/submitphoto',
+            processData:false,
+            contentType:false,
+            secureuri: false,
+            fileElementId: 'submitphoto',
+            dataType:'JSON',
+            success: function(data, status) {
+                {#alert(data)#}
+                if(data==0)
+                    alert("Successfully upload!");
+                else if(data==2)
+                    alert("请先录入您的个人信息！")
+                else if(data==3)
+                    alert("上传重复！")
+                else
+                    alert("请上传jpg和png格式的图片！")
+            },
+            error: function(data, status, e) {
+                alert(e);
+            }
+        });
+}
+
+</script>
+</body>
+</html>
