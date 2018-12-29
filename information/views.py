@@ -14,12 +14,12 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 # Create your views here.
-@login_required()
+# @login_required()
 def information(request):
     print('request', request.POST)
     if request.method == 'POST':
-            sname=request.user.username
-            # sname='Twinkle'
+            # sname=request.user.username
+            sname='Twinkle'
             sno=request.POST['sno']
             signature=request.POST.get('signature','')
             email=request.POST.get('email','')
@@ -40,12 +40,12 @@ def information(request):
                 db.close()
                 return HttpResponse('sorry,添加个人信息失败！')
 
-            return render(request, 'information/information.html',{'information':showinfo} )
+            return render(request, 'information/new_information.html',{'information':showinfo} )
 
     else:
-        sname=request.user.username
-        print(sname)
-        # sname='Twinkle'
+        # sname=request.user.username
+        # print(sname)
+        sname='Twinkle'
         db=pymysql.connect("140.143.234.60", "Db_team", "TikoTiko", "Class_Schedule")
         cursor=db.cursor()
 
@@ -70,14 +70,14 @@ def information(request):
         db.close()
         print(showinfo[0])
         showinfo=showinfo[0]
-        return render(request, 'information/information.html',{'sname':showinfo[0],'sno':showinfo[1],'email':showinfo[2],'signature':showinfo[3],'sex':showinfo[4],'photo':showinfo[5]} )
+        return render(request, 'information/new_information.html',{'sname':showinfo[0],'sno':showinfo[1],'email':showinfo[2],'signature':showinfo[3],'sex':showinfo[4],'photo':showinfo[5]} )
 
 @csrf_exempt
 def submitphoto(request):
     print('fileElementId', request.FILES)
     if request.method == 'POST':
-        sname=request.user.username
-        # sname='Twinkle'
+        # sname=request.user.username
+        sname='Twinkle'
         photo=request.FILES.get("submitphoto", None)  # 获取上传的文件，如果没有文件，则默认为None
         with open('C:\workspace\PythonProject\Stars\static\photos\\' + photo.name, 'wb') as f:
             for line in photo:
@@ -133,7 +133,7 @@ def submitphoto(request):
          return HttpResponse("wrong!")
 
 
-@login_required
+# @login_required
 def ctf_logout(request):
     logout(request)
     return HttpResponseRedirect("/")

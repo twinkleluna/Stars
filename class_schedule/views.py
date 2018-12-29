@@ -9,15 +9,15 @@ import json
 import pymysql
 # Create your views here.
 
-@login_required
+# @login_required
 def class_schedule(request):
     context = {}
     return render(request, 'class_schedule/timetable.html',context)
 
-@login_required
+# @login_required
 def get_schedule(request):
-    username=request.user.username
-    # username="Twinkle"
+    # username=request.user.username
+    username="Twinkle"
     weekday1=['','','','','','','','','','','','']
     weekday2=['','','','','','','','','','','','']
     weekday3=['','','','','','','','','','','','']
@@ -120,7 +120,7 @@ def get_schedule(request):
        content=json.dumps(courseList)
        return HttpResponse(content)
 
-@login_required
+# @login_required
 def get_scheduleOther(request):
     if request.is_ajax():
        courseList=[
@@ -132,3 +132,7 @@ def get_scheduleOther(request):
        ]
        content=json.dumps(courseList)
        return HttpResponse(content)
+
+def new_class_schedule(request):
+    context = {}
+    return render(request, 'class_schedule/new_timetable.html',context)

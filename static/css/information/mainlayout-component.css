@@ -30,5 +30,17 @@
 	margin-top: -170px;
      overflow-y:auto!important;
  }
+  #schedule-center{
+      background: white;
+     height:1000px!important;
+	width: 1000px;
+     position: fixed;
+     _position:absolute;
+	left: 50%;
+	top:45%;
+	margin-left: -500px;
+	margin-top: -170px;
+     overflow-y:auto!important;
+ }
 
 

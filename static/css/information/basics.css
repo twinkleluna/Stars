@@ -13,14 +13,14 @@
 .information li{
     height:70px;
     padding:12px;
-    border-bottom:1px solid #89d7ff;
+    /*border-bottom:1px solid #89d7ff;*/
     width:80%;
     position:relative;
 }
-.information li:first-child, .information li:last-child {
-    border-bottom:1px solid #89d7ff;
-    width:80%;
-}
+/*.information li:first-child, .information li:last-child {*/
+    /*border-bottom:1px solid #89d7ff;*/
+    /*width:80%;*/
+/*}*/
 .information label {
 
     display:inline-block;
