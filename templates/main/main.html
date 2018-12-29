@@ -14,39 +14,8 @@
 			<div id="back" :style="styleBack"></div>
 		</div>
 	    </div>
-        <div style="margin-top: -25%;">
-        <canvas id="question" style="width:180px;height:130px;background-color:lightgoldenrodyellow;border:5px solid lightgray;border-radius:80px;"></canvas>
-        <canvas id="question2" onclick="javascript:window.location.href='../../board/login'" ></canvas>
-        <canvas id="rank" style="width:180px;height:130px;background-color:mediumpurple;border:5px solid lightgray;border-radius:80px;"></canvas>
-        <canvas id="rank2" onclick="javascript:window.location.href='../../board/login'"></canvas>
-        <canvas id="discuss" style="width:180px;height:130px;background-color:lightpink;border:5px solid lightgray;border-radius:80px;"></canvas>
-        <canvas id="discuss2" onclick="javascript:window.location.href='../../board/login'" ></canvas>
-        </div>
     </div>
-<script>
-   var canvasQ=document.getElementById("question2");
-   var textQ="CTF赛场";
-   var cq = canvasQ.getContext('2d');
-   cq.textAlign='center';
-   cq.font='40px Arial';
-   cq.fillText(textQ,150,85);
-
-   var canvasR=document.getElementById("rank2");
-   var textR="实时排名";
-   var cr= canvasR.getContext('2d');
-   cr.textAlign='center';
-   cr.font='40px Arial';
-   cr.fillText(textR,150,85);
-
-   var canvasD=document.getElementById("discuss2");
-   var textD="自由讨论";
-   var cd= canvasD.getContext('2d');
-   cd.textAlign='center';
-   cd.font='40px Arial';
-   cd.fillText(textD,150,85);
-</script>
-
-    <script src="../../static/js/jquery-1.11.3.min.js"></script>
+<script src="../../static/js/jquery-1.11.3.min.js"></script>
 <script src="../../static/js/vue.min.js"></script>
 
 <script type="text/javascript">
