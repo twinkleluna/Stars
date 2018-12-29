@@ -9,15 +9,15 @@ import json
 import pymysql
 # Create your views here.
 
-@login_required
+# @login_required
 def update_schedule(request):
     context = {}
-    return render(request, 'update_schedule/update.html',context)
+    return render(request, 'update_schedule/new_update.html',context)
 
-@login_required
+# @login_required
 def add_course(request):
-    username=request.user.username
-    # username="Twinkle"
+    # username=request.user.username
+    username="Twinkle"
 
     if request.method=='POST':
 
@@ -75,10 +75,10 @@ def add_course(request):
        db.close()
        return HttpResponse('添加成功！')
 
-@login_required
+# @login_required
 def sub_course(request):
-    sname=request.user.username
-    # sname="Twinkle"
+    # sname=request.user.username
+    sname="Twinkle"
 
     if request.method == 'POST':
 
