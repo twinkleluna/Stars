@@ -25,13 +25,6 @@ def add_course(request):
        cursor=db.cursor()
 
        cno=request.POST['cno']
-       cname=request.POST['cname']
-       teacher=request.POST['teacher']
-       weekday=request.POST['weekday']
-       lesson1=request.POST['lesson1']
-       lesson2=request.POST['lesson2']
-       lesson3=request.POST['lesson3']
-       lesson4=request.POST['lesson4']
 
        order='select * from selected_course where sname=\'' + username + '\' and cno=' + cno + ';'
        print(order)
@@ -51,18 +44,28 @@ def add_course(request):
            db.close()
            return HttpResponse("sorry,您已添加该课程！")
 
-       order1='insert into course(cno,cname,teacher,weekday,lesson1,lesson2,lesson3,lesson4) values('+cno+',\''+cname+'\',\''+teacher+'\','+weekday+','+lesson1+','+lesson2+','+lesson3+','+lesson4+");"
+       order1='select * from course where cno=' + cno + ';'
        print(order1)
-       order2='insert into selected_course(sname,cno,cname) values (\''+username+'\','+cno+',\''+cname+'\');'
-       print(order2)
 
        try:
            cursor.execute(order1)
            db.commit()
+           is_valid=cursor.fetchall()
+           print(is_valid)
        except:
-            db.rollback()
-            db.close()
-            return HttpResponse('sorry,添加课程失败！')
+           db.rollback()
+           db.close()
+           return HttpResponse('sorry,添加课程失败！')
+
+       if is_valid:
+           pass
+       else:
+           db.rollback()
+           db.close()
+           return HttpResponse("sorry,不存在此课程！")
+
+       order2='insert into selected_course(sname,cno) values (\''+username+'\','+cno+');'
+       print(order2)
 
        try:
            cursor.execute(order2)
@@ -107,24 +110,13 @@ def sub_course(request):
            try:
              cursor.execute(order2)
              db.commit()
+             db.close()
+             return HttpResponse('删除成功！')
            except:
              db.rollback()
              db.close()
              return HttpResponse('sorry,删除课程失败！')
 
-           order3='delete from course where cno=' + cno + ';'
-           print(order3)
-
-           try:
-             cursor.execute(order3)
-             db.commit()
-           except:
-             db.rollback()
-             db.close()
-             return HttpResponse('sorry,删除课程失败！')
-
-           db.close()
-           return HttpResponse('删除成功！')
         else:
             db.rollback()
             db.close()

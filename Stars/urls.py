@@ -23,6 +23,7 @@ urlpatterns = [
     path('', include('main.urls', namespace='main')),
     path('board/', include('board.urls', namespace='board')),
     path('class_schedule/', include('class_schedule.urls', namespace='class_schedule')),
+    path('search_course/', include('search_course.urls', namespace='search_course')),
     path('update_schedule/', include('update_schedule.urls', namespace='update_schedule')),
     path('information/', include('information.urls', namespace='information')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

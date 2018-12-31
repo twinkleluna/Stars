@@ -12,7 +12,7 @@ import pymysql
 # @login_required
 def class_schedule(request):
     context = {}
-    return render(request, 'class_schedule/timetable.html',context)
+    return render(request, 'class_schedule/new_timetable.html',context)
 
 # @login_required
 def get_schedule(request):
@@ -23,6 +23,8 @@ def get_schedule(request):
     weekday3=['','','','','','','','','','','','']
     weekday4=['','','','','','','','','','','','']
     weekday5=['','','','','','','','','','','','']
+    weekday6=['','','','','','','','','','','','']
+    weekday7=['','','','','','','','','','','','']
 
     if request.is_ajax():
 
@@ -44,11 +46,9 @@ def get_schedule(request):
        for row in rows:
            order_cname='select cname from course where cno='+(str)(row[0])+";"
            order_weekday='select weekday from course where cno=' + (str)(row[0]) + ";"
-           order_lesson1='select lesson1 from course where cno=' + (str)(row[0]) + ";"
-           order_lesson2='select lesson2 from course where cno=' + (str)(row[0]) + ";"
-           order_lesson3='select lesson3 from course where cno=' + (str)(row[0]) + ";"
-           order_lesson4='select lesson4 from course where cno=' + (str)(row[0]) + ";"
-           order_teacher='select teacher from course where cno=' + (str)(row[0]) + ";"
+           order_start_time='select start_time from course where cno=' + (str)(row[0]) + ";"
+           order_duration='select duration from course where cno=' + (str)(row[0]) + ";"
+           order_classroom='select classroom from course where cno=' + (str)(row[0]) + ";"
            try:
                cursor.execute(order_cname)
                db.commit()
@@ -63,59 +63,55 @@ def get_schedule(request):
                weekday=weekday[2]
                print(weekday)
 
-               cursor.execute(order_lesson1)
+               cursor.execute(order_start_time)
                db.commit()
-               lesson1=cursor.fetchall()
-               lesson1=str(lesson1[0])
-               lesson1=int(lesson1[1:-2])
+               start_time=cursor.fetchall()
+               start_time=str(start_time[0])
+               start_time=int(start_time[1:-2])
 
-               cursor.execute(order_lesson2)
+               cursor.execute(order_duration)
                db.commit()
-               lesson2=cursor.fetchall()
-               lesson2=str(lesson2[0])
-               lesson2=int(lesson2[1:-2])
+               duration=cursor.fetchall()
+               duration=str(duration[0])
+               duration=int(duration[1:-2])
 
-               cursor.execute(order_lesson3)
+               cursor.execute(order_classroom)
                db.commit()
-               lesson3=cursor.fetchall()
-               lesson3=str(lesson3[0])
-               lesson3=int(lesson3[1:-2])
-
-               cursor.execute(order_lesson4)
-               db.commit()
-               lesson4=cursor.fetchall()
-               lesson4=str(lesson4[0])
-               lesson4=int(lesson4[1:-2])
-
-               cursor.execute(order_teacher)
-               db.commit()
-               teacher=cursor.fetchall()
-               teacher=str(teacher[0])
-               print(teacher)
+               classroom=cursor.fetchall()
+               classroom=str(classroom[0])
+               print(classroom)
            except:
                db.rollback()
-           if weekday=='1':
+           if weekday == '1':
               for num in range(1, 13):
-                 if lesson1 == num or num == lesson2 or num == lesson3 or num == lesson4:
-                    weekday1[num-1]=cname
+                   if num in range(start_time,start_time+duration):
+                       weekday1[num-1]=cname
            if weekday == '2':
                for num in range(1,13 ):
-                 if lesson1 == num or num == lesson2 or num == lesson3 or num == lesson4:
-                      weekday2[num-1]=cname
+                   if num in range(start_time, start_time + duration):
+                       weekday2[num - 1]=cname
            if weekday == '3':
                for num in range(1, 13):
-                   if lesson1==num or num == lesson2 or num == lesson3 or num == lesson4:
-                       weekday3[num-1]=cname
+                   if num in range(start_time, start_time + duration):
+                       weekday3[num - 1]=cname
            if weekday == '4':
                for num in range(1, 13):
-                   if lesson1 == num or num == lesson2 or num == lesson3 or num == lesson4:
-                       weekday4[num - 1]=cname
+                   if num in range(start_time,start_time+duration):
+                    weekday4[num-1]=cname
            if weekday == '5':
                for num in range(1, 13):
-                   if lesson1 == num or num == lesson2 or num == lesson3 or num == lesson4:
-                       weekday5[num-1]=cname
+                   if num in range(start_time, start_time + duration):
+                       weekday5[num - 1]=cname
+           if weekday == '6':
+               for num in range(1, 13):
+                   if num in range(start_time, start_time + duration):
+                       weekday6[num - 1]=cname
+           if weekday == '7':
+               for num in range(1, 13):
+                   if num in range(start_time, start_time + duration):
+                       weekday7[num - 1]=cname
        db.close()
-       courseList=[weekday1, weekday2, weekday3, weekday4, weekday5]
+       courseList=[weekday1, weekday2, weekday3, weekday4, weekday5,weekday6,weekday7]
        print(courseList)
        content=json.dumps(courseList)
        return HttpResponse(content)

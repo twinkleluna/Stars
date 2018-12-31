@@ -22,102 +22,43 @@
     <script type="text/javascript" src="/static/js/bootstrap/bootstrap.min.js"></script>
 
     <!-- you need to include the shieldui css and js assets in order for the charts to work -->
-    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
-    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
-    <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
-<style>
-	#coursesTable {
-		padding: 15px 10px;
-	}
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap/all.min.css" />
+    <style>
 
-	.Courses-head {
-		background-color: #edffff;
-	}
-
-	.Courses-head > div {
-		text-align: center;
-		font-size: 14px;
-		line-height: 28px;
-	}
-
-	.left-hand-TextDom, .Courses-head {
-		background-color: #f2f6f7;
-	}
-
-	.Courses-leftHand {
-		background-color: #f2f6f7;
-		font-size: 12px;
-	}
-
-	.Courses-leftHand .left-hand-index {
-		color: #9c9c9c;
-		margin-bottom: 4px !important;
-	}
-
-	.Courses-leftHand .left-hand-name {
-		color: #666;
-	}
-
-	.Courses-leftHand p {
-		text-align: center;
-		font-weight: 900;
-	}
-
-	.Courses-head > div {
-		border-left: none !important;
-	}
-
-	.Courses-leftHand > div {
-		padding-top: 5px;
-		border-bottom: 1px dashed rgb(219, 219, 219);
-	}
-
-	.Courses-leftHand > div:last-child {
-		border-bottom: none !important;
-	}
-
-	.left-hand-TextDom, .Courses-head {
-		border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
-	}
-
-	.Courses-content > ul {
-		border-bottom: 1px dashed rgb(219, 219, 219);
-		box-sizing: border-box;
-	}
-
-	.Courses-content > ul:last-child {
-		border-bottom: none !important;
-	}
-
-	.highlight-week {
-		color: #02a9f5 !important;
-	}
-
-	.Courses-content li {
-		text-align: center;
-		color: #666666;
-		font-size: 14px;
-		line-height: 50px;
-	}
-
-	.Courses-content li span {
-		padding: 6px 2px;
-		box-sizing: border-box;
-		line-height: 18px;
-		border-radius: 4px;
-		white-space: normal;
-		word-break: break-all;
-		cursor: pointer;
-	}
-
-	.grid-active {
-		z-index: 9999;
-	}
-
-	.grid-active span {
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-	}
-</style>
+.search-info ul,.search-info2 ul,.search-info3 ul {
+    width:90%;
+    list-style-type:none;
+    list-style-position:outside;
+    margin:0;
+    padding:0;
+}
+.search-info li,.search-info2 li,.search-info3 li{
+    padding:0px;
+    width:80%;
+    position:relative;
+}
+.search-info input, .search-info2 input, .search-info3 input {
+    margin-top: -20px;
+     border:1px solid #e4b9c0;
+     border-radius:10px;
+}
+.search-info,.search-info2,.search-info3{
+    margin:0% 0 0 0%;
+    width:40%;
+    float:left;
+}
+.search-info label,.search-info2 label ,.search-info3 label{
+    display:inline-block;
+    float:left;
+}
+.tijiao{
+    margin-top: 15px;
+    width:100%;
+    height:30px;
+    color:#337ab7;
+    border-radius:5px;
+}
+    </style>
 </head>
 <body>
     <div id="wrapper">
@@ -130,7 +71,6 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="new_timetable.html" style="margin-top:-2%;color:hotpink;font-style:italic;font-family:'Times New Roman',Georgia,Serif;font-size: 30px;">STARS</a>
-{#                <a class="navbar-brand" href="index.html">Admin Panel</a>#}
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
@@ -145,24 +85,6 @@
                 <ul class="nav navbar-nav navbar-right navbar-user">
                     <li class="dropdown messages-dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Messages <span class="badge">2</span> <b class="caret"></b></a>
-{#                        <ul class="dropdown-menu">#}
-{#                            <li class="dropdown-header">2 New Messages</li>#}
-{#                            <li class="message-preview">#}
-{#                                <a href="#">#}
-{#                                    <span class="avatar"><i class="fa fa-bell"></i></span>#}
-{#                                    <span class="message">Security alert</span>#}
-{#                                </a>#}
-{#                            </li>#}
-{#                            <li class="divider"></li>#}
-{#                            <li class="message-preview">#}
-{#                                <a href="#">#}
-{#                                    <span class="avatar"><i class="fa fa-bell"></i></span>#}
-{#                                    <span class="message">Security alert</span>#}
-{#                                </a>#}
-{#                            </li>#}
-{#                            <li class="divider"></li>#}
-{#                            <li><a href="#">Go to Inbox <span class="badge">2</span></a></li>#}
-{#                        </ul>#}
                     </li>
                    <li >
                        <a href="/board/logout"><i class="fa fa-user"></i> Logout</a>
@@ -171,12 +93,106 @@
             </div>
         </nav>
         <div id="page-wrapper">
-          <div style="height:1500px;overflow-y: auto;">
-               <button onclick="onChange()" style="background-color: #00a2ae; color: #fff; padding: 5px 10px; border-radius: 4px;border: none">
-                           切换课表
-               </button>
-              <div id="coursesTable"></div>
-          </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Key Teacher</h3>
+                        </div>
+                        <div class="panel-body">
+                     <form class="search-info" action="/search_course/search_teacher" name="search-info" method="post">
+                           {% csrf_token %}
+                     <ul>
+                          <li>
+                              <lable for="teacher"> 教师：</lable>
+                              <input name="teacher" class="text" style="color:#66C1E4 !important" type="text">
+                          </li>
+                          <li>
+                            <div >
+                               <button class="tijiao"onclick="javascript:document.search-info.submit();">查询</button>
+                            </div>
+                         </li>
+                     </ul>
+                 </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Key Classroom</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form class="search-info2" action="/search_course/search_classroom" name="search-info2" method="post">
+                           {% csrf_token %}
+                     <ul>
+                          <li>
+                              <lable for="classroom"> 教室：</lable>
+                              <input name="classroom" class="text" style="color:#66C1E4 !important" type="text"></input>
+                          </li>
+                       <li>
+                          <div >
+                             <button class="tijiao"onclick="javascript:document.search-info2.submit();">查询</button>
+                          </div>
+                       </li>
+                     </ul>
+                 </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Key Date</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form class="search-info3" action="/search_course/search_data" name="search-info3" method="post">
+                           {% csrf_token %}
+                     <ul>
+                          <li>
+                              <lable for="month"> 月份：</lable>
+                              <input name="month" class="text" style="color:#66C1E4 !important" type="text"></input>
+                          </li>
+                          <li>
+                              <lable for="day"> 日期：</lable>
+                              <input name="day" class="text" style="color:#66C1E4 !important" type="text">
+                          </li>
+                       <li>
+                          <div >
+                              <button class="tijiao"onclick="javascript:document.search-info3.submit();">查询</button>
+                          </div>
+                       </li>
+                     </ul>
+                 </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Search Result</h3>
+                        </div>
+                        <div class="panel-body">
+                              <div style="display:flex;justify-content: space-around ">
+                                    {% for type_,infolist in showinfo.items %}
+                                 <div name="{{ type_ }}">
+                                     <button class="btn btn-primary btn-lg" style="width:max-content;height:40px;margin:0px 0 0 20px;border:2px solid #B8DDFF;
+                                         text-align: center;vertical-align:auto;" >{{ type_ }}</button>
+                                       {% for info in infolist %}
+                                            <button class="btn btn-primary btn-lg" style="width:max-content;height:40px;margin:0px 0 0 20px;border:2px solid #B8DDFF;
+                                             text-align: center;vertical-align:auto;" >{{ info}}</button>
+                                           {% if not forloop.last %} </br>{% endif %}
+                                      {% endfor %}
+                                  </div>
+                                     {% endfor %}
+                              </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+            <p id="ps"></p>
         </div>
     </div>
 <script src="/static/js/lib/jquery.min.js"></script>
@@ -186,94 +202,7 @@
 <script src="/static/js/lib/ng-file-upload-shim.min.js"></script>
 <script src="/static/js/lib/ng-file-upload.min.js"></script>
 <script src="/static/js/lib/ajaxfileupload.js"></script>
-<script>
-    get_schedule();
-    var courseList ;
-    var week = window.innerWidth > 360 ? ['周一', '周二', '周三', '周四', '周五'] :
-    ['一', '二', '三', '四', '五'];
-     var day = new Date().getDay();
-     var courseType = [
-     [{index: '1', name: '8:30'}, 1],
-     [{index: '2', name: '9:30'}, 1],
-         [{index: '3', name: '10:30'}, 1],
-     [{index: '4', name: '11:30'}, 1],
-     [{index: '5', name: '12:30'}, 1],
-         [{index: '6', name: '14:30'}, 1],
-      [{index: '7', name: '15:30'}, 1],
-      [{index: '8', name: '16:30'}, 1],
-      [{index: '9', name: '17:30'}, 1],
-      [{index: '10', name: '18:30'}, 1],
-      [{index: '11', name: '19:30'}, 1],
-      [{index: '12', name: '20:30'}, 1]
-     ];
-     var Timetable = new Timetables();
-
-    //a.js
-function afterAjaxSuccess(jsonData) {
-    courseList=jsonData;
-
-Timetable =new Timetables({
-el: '#coursesTable',
-timetables: courseList,
-week: week,
-timetableType: courseType,
-highlightWeek: day,
-gridOnClick: function (e) {
-  alert(e.name + '  ' + e.week + ', 第' + e.index + '节课, 课长' + e.length + '节');
-  console.log(e);
-},
-styles: {
-  Gheight: 50
-}
-});
-}
-//.html
-function get_schedule() {
-    $.ajax({
-        url:'/class_schedule/get_schedule',
-        dataType: 'JSON',
-        type: 'GET',
-        success: function(data){
-            afterAjaxSuccess(data);
-        },
-        error: function(data, status, e) {
-            alert("asd");
-        }
-    });
-}
-
-//切换课表
-function onChange() {
-    $.ajax({
-        url:'/class_schedule/get_scheduleOther',
-        dataType: 'JSON',
-        type: 'GET',
-        success: function(data){
-            changeScheduleSuccess(data);
-        },
-        error: function(data, status, e) {
-            alert("asd");
-        }
-    });
-}
-function changeScheduleSuccess(jsonData) {
-    courseListOther = jsonData;
-
-   Timetable.setOption({
-  timetables: courseListOther,
-  week: ['一', '二', '三', '四', '五', '六', '日'],
-  styles: {
-	palette: ['#dedcda', '#ff4081']
-  },
-  timetableType: courseType,
-  gridOnClick: function (e) {
-  alert(e.name + '  ' + e.week + ', 第' + e.index + '节课, 课长' + e.length + '节');
-  console.log(e);
-  },
-  });
-}
-
-</script>
+<script type="text/javascript" src="/static/js/bootstrap/shieldui-all.min.js"></script>
 <script>
     (function(window,document,undefined){
     var hearts = [];
