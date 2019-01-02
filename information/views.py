@@ -24,11 +24,12 @@ def information(request):
             signature=request.POST.get('signature','')
             email=request.POST.get('email','')
             sex=request.POST['sex']
+            faculty=request.POST['faculty']
 
             db=pymysql.connect("140.143.234.60", "Db_team", "TikoTiko", "Class_Schedule")
             cursor=db.cursor()
 
-            order='insert into student(sname,sno,email,signature,sex) values(\'' +sname+ '\',' + sno + ',\'' + email + '\',\'' + signature + '\',\'' + sex + '\');'
+            order='insert into student(sname,sno,email,signature,sex,faculty) values(\'' +sname+ '\',' + sno + ',\'' + email + '\',\'' + signature + '\',\'' + sex + '\',\''+faculty+'\');'
             print(order)
 
             try:
@@ -70,7 +71,7 @@ def information(request):
         db.close()
         print(showinfo[0])
         showinfo=showinfo[0]
-        return render(request, 'information/new_information.html',{'sname':showinfo[0],'sno':showinfo[1],'email':showinfo[2],'signature':showinfo[3],'sex':showinfo[4],'photo':showinfo[5]} )
+        return render(request, 'information/new_information.html',{'sname':showinfo[0],'sno':showinfo[1],'email':showinfo[2],'signature':showinfo[3],'sex':showinfo[4],'photo':showinfo[5],'faculty':showinfo[6]} )
 
 @csrf_exempt
 def submitphoto(request):
