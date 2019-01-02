@@ -176,17 +176,18 @@
                         </div>
                         <div class="panel-body">
                               <div style="display:flex;justify-content: space-around ">
-                                    {% for type_,infolist in showinfo.items %}
-                                 <div name="{{ type_ }}">
-                                     <button class="btn btn-primary btn-lg" style="width:max-content;height:40px;margin:0px 0 0 20px;border:2px solid #B8DDFF;
-                                         text-align: center;vertical-align:auto;" >{{ type_ }}</button>
-                                       {% for info in infolist %}
-                                            <button class="btn btn-primary btn-lg" style="width:max-content;height:40px;margin:0px 0 0 20px;border:2px solid #B8DDFF;
-                                             text-align: center;vertical-align:auto;" >{{ info}}</button>
-                                           {% if not forloop.last %} </br>{% endif %}
+                               {% for type_,infolist in showinfo.items %}
+                                <table name="{{ type_ }}">
+                                           <tr style="width:max-content;height:40px;margin:0px 0 0 20px;
+                                             text-align: center;vertical-align:auto;" >{{ type_ }}</tr>
+                                            </br>
+                                      {% for info in infolist%}
+                                          <tr style="width:max-content;height:40px;margin:0 0 0 20px;
+                                           text-align: center;vertical-align:auto;" >{{ info}}</tr>
+                                             {% if not forloop.last %} </br>{% endif %}
                                       {% endfor %}
-                                  </div>
-                                     {% endfor %}
+                                 </table>
+                               {% endfor %}
                               </div>
                          </div>
                     </div>
