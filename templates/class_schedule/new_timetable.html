@@ -18,6 +18,8 @@
     <link rel="stylesheet" type="text/css" href="/static/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="/static/css/bootstrap/local.css" />
 
+    <link type="text/css" rel="stylesheet" href="/static/css/loading.css">
+
     <script type="text/javascript" src="/static/js/bootstrap/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="/static/js/bootstrap/bootstrap.min.js"></script>
 
@@ -179,6 +181,9 @@
           </div>
         </div>
     </div>
+    <div class="loading" id="load" >
+        <img class="gif" src="/static/images/loading.gif">
+    </div>
 <script src="/static/js/lib/jquery.min.js"></script>
 <script src="/static/js/lib/jquery.cookie.js"></script>
 <script src="/static/js/lib/bootstrap.min.js"></script>
@@ -243,19 +248,31 @@ function get_schedule() {
 }
 
 //切换课表
+    var schedule_PATH = '/class_schedule/get_scheduleOther';
 function onChange() {
+    document.getElementById("load").style.visibility="visible";
+    if(schedule_PATH !== '/class_schedule/get_scheduleOther'){
+        schedule_PATH = '/class_schedule/get_scheduleOther';
+    }else{
+        schedule_PATH = '/class_schedule/get_schedule';
+    }
     $.ajax({
-        url:'/class_schedule/get_scheduleOther',
+        url: schedule_PATH,
         dataType: 'JSON',
         type: 'GET',
         success: function(data){
             changeScheduleSuccess(data);
+            //请求完成，隐藏模态框
+            document.getElementById("load").style.visibility="hidden";
         },
         error: function(data, status, e) {
             alert("asd");
+            //请求完成，隐藏模态框
+            document.getElementById("load").style.visibility="hidden";
         }
     });
 }
+
 function changeScheduleSuccess(jsonData) {
     courseListOther = jsonData;
 
