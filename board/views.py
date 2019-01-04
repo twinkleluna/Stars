@@ -58,6 +58,8 @@ def ctf_register(request):
         username = request.POST['username']
         password = request.POST['password']
         checkcode = request.POST['checkcode']
+        check_password=request.POST['check_password']
+        sno=request.POST['sno']
 
         if request.session['checkcode'] == "":
             return HttpResponse('Check code time out!')
@@ -66,8 +68,32 @@ def ctf_register(request):
             return HttpResponse('Wrong check code!')
 
         # 验证密码
-        registAdd = User.objects.create_user(username=username, password=password)
+        flag = (check_password == password)
+        print(flag)
+
+        if(flag):
+            registAdd = User.objects.create_user(username=username, password=password)
+        else:
+            return HttpResponse("Sorry,两次密码不一致~")
+
+        print(registAdd)
+
         if registAdd :
+            import pymysql
+            db=pymysql.connect("140.143.234.60", "Db_team", "TikoTiko", "Class_Schedule")
+            cursor=db.cursor()
+
+            order='insert into student(sname,sno) values(\'' + username + '\','+sno+');'
+            print(order)
+            try:
+                cursor.execute(order)
+                db.commit()
+                is_valid=cursor.fetchall()
+                print(is_valid)
+            except:
+                db.rollback()
+                db.close()
+                return HttpResponse('sorry,登陆失败！')
             return HttpResponseRedirect(redirect_to)
         else:
             return HttpResponse("Invalid user")

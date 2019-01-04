@@ -18,8 +18,6 @@
     <link rel="stylesheet" type="text/css" href="/static/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="/static/css/bootstrap/local.css" />
 
-    <link type="text/css" rel="stylesheet" href="/static/css/loading.css">
-
     <script type="text/javascript" src="/static/js/bootstrap/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="/static/js/bootstrap/bootstrap.min.js"></script>
 
@@ -27,99 +25,14 @@
     <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
     <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
     <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
-<style>
-	#coursesTable {
-		padding: 15px 10px;
-	}
-
-	.Courses-head {
-		background-color: #edffff;
-	}
-
-	.Courses-head > div {
-		text-align: center;
-		font-size: 14px;
-		line-height: 28px;
-	}
-
-	.left-hand-TextDom, .Courses-head {
-		background-color: #f2f6f7;
-	}
-
-	.Courses-leftHand {
-		background-color: #f2f6f7;
-		font-size: 12px;
-	}
-
-	.Courses-leftHand .left-hand-index {
-		color: #9c9c9c;
-		margin-bottom: 4px !important;
-	}
-
-	.Courses-leftHand .left-hand-name {
-		color: #666;
-	}
-
-	.Courses-leftHand p {
-		text-align: center;
-		font-weight: 900;
-	}
-
-	.Courses-head > div {
-		border-left: none !important;
-	}
-
-	.Courses-leftHand > div {
-		padding-top: 5px;
-		border-bottom: 1px dashed rgb(219, 219, 219);
-	}
-
-	.Courses-leftHand > div:last-child {
-		border-bottom: none !important;
-	}
-
-	.left-hand-TextDom, .Courses-head {
-		border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
-	}
-
-	.Courses-content > ul {
-		border-bottom: 1px dashed rgb(219, 219, 219);
-		box-sizing: border-box;
-	}
-
-	.Courses-content > ul:last-child {
-		border-bottom: none !important;
-	}
-
-	.highlight-week {
-		color: #02a9f5 !important;
-	}
-
-	.Courses-content li {
-		text-align: center;
-		color: #666666;
-		font-size: 14px;
-		line-height: 50px;
-	}
-
-	.Courses-content li span {
-		padding: 6px 2px;
-		box-sizing: border-box;
-		line-height: 18px;
-		border-radius: 4px;
-		white-space: normal;
-		word-break: break-all;
-		cursor: pointer;
-	}
-
-	.grid-active {
-		z-index: 9999;
-	}
-
-	.grid-active span {
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-	}
-</style>
+    <style>
+    .panel-body{
+    }
+    .panel-body div:first-child .panel-body li:last-child {
+        border-bottom:1px solid #89d7ff;
+        width:80%;
+     }
+    </style>
 </head>
 <body>
     <div id="wrapper">
@@ -132,7 +45,6 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="new_timetable.html" style="margin-top:-2%;color:hotpink;font-style:italic;font-family:'Times New Roman',Georgia,Serif;font-size: 30px;">STARS</a>
-{#                <a class="navbar-brand" href="index.html">Admin Panel</a>#}
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
@@ -150,19 +62,71 @@
             </div>
         </nav>
         <div id="page-wrapper">
-          <div style="height:1500px;overflow-y: auto;">
-               <button onclick="onChange()" style="background-color: #00a2ae; color: #fff; padding: 5px 10px; border-radius: 4px;border: none">
-                           切换课表
-               </button>
-              <div id="coursesTable"></div>
-          </div>
+            <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Add Course</h3>
+             </div>
+            <div class="panel-body">
+                 <form class="information" action="/create_course/add_course" name="information" method="post">
+                           {% csrf_token %}
+                     <ul>
+                         <li>
+                              <lable for="cname">cname：</lable>
+                              <input name="cname" class="text" style="color:#66C1E4 !important" type="text" required>
+                          </li>
+                          <li>
+                              <lable for="teacher">teacher：</lable>
+                              <input name="teacher" class="text" style="color:#66C1E4 !important" type="text" required>
+                          </li>
+                          <li>
+                              <lable for="weekday">weekday：</lable>
+                              <input name="weekday" class="text" style="color:#66C1E4 !important" type="text" required>
+                          </li>
+                          <li>
+                              <lable for="start_time">start_time：</lable>
+                              <input name="start_time" class="text" style="color:#66C1E4 !important" type="text"required></input>
+                          </li>
+                          <li>
+                              <lable for="duration">duration：</lable>
+                              <input name="duration" class="text" style="color:#66C1E4 !important" type="text" required>
+                          </li>
+                          <li>
+                              <lable for="classroom">classroom：</lable>
+                              <input name="classroom" class="text" style="color:#66C1E4 !important" type="text" required="required">
+                          </li>
+                       <li>
+                          <div class="mb2">
+                              <a class="act-but submit" href="javascript:document.information.submit();" style="width:70%;float:left;color:#66C1E4">确认添加</a>
+                          </div>
+                       </li>
+                     </ul>
+                 </form>
+            </div>
+            </div>
+                        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Delete Course</h3>
+             </div>
+            <div class="panel-body">
+                 <form class="information" action="/create_course/delete_course" name="information1" method="post">
+                           {% csrf_token %}
+                     <ul>
+                         <li>
+                              <lable for="cno">cno：</lable>
+                              <input name="cno" class="text" style="color:#66C1E4 !important" type="text" required>
+                          </li>
+                       <li>
+                          <div class="mb2">
+                              <a class="act-but submit" href="javascript:document.information1.submit();" style="width:70%;float:left;color:#66C1E4">确认删除</a>
+                          </div>
+                       </li>
+                     </ul>
+                 </form>
+            </div>
+            </div>
+             </div>
         </div>
     </div>
-
-    <div class="loading" id="load" >
-        <img class="gif" src="/static/images/loading.gif">
-    </div>
-
 <script src="/static/js/lib/jquery.min.js"></script>
 <script src="/static/js/lib/jquery.cookie.js"></script>
 <script src="/static/js/lib/bootstrap.min.js"></script>
@@ -170,115 +134,6 @@
 <script src="/static/js/lib/ng-file-upload-shim.min.js"></script>
 <script src="/static/js/lib/ng-file-upload.min.js"></script>
 <script src="/static/js/lib/ajaxfileupload.js"></script>
-<script>
-    get_schedule();
-    var courseList ;
-    var week = window.innerWidth > 360 ? ['周一', '周二', '周三', '周四', '周五','周六','周日'] :
-    ['一', '二', '三', '四', '五','六','日'];
-     var day = new Date().getDay();
-     var courseType = [
-     [{index: '1', name: '8:30'}, 1],
-     [{index: '2', name: '9:30'}, 1],
-         [{index: '3', name: '10:30'}, 1],
-     [{index: '4', name: '11:30'}, 1],
-     [{index: '5', name: '12:30'}, 1],
-         [{index: '6', name: '14:30'}, 1],
-      [{index: '7', name: '15:30'}, 1],
-      [{index: '8', name: '16:30'}, 1],
-      [{index: '9', name: '17:30'}, 1],
-      [{index: '10', name: '18:30'}, 1],
-      [{index: '11', name: '19:30'}, 1],
-      [{index: '12', name: '20:30'}, 1]
-     ];
-     var Timetable = new Timetables();
-
-    //a.js
-function afterAjaxSuccess(jsonData) {
-    courseList=jsonData;
-
-Timetable =new Timetables({
-el: '#coursesTable',
-timetables: courseList,
-week: week,
-timetableType: courseType,
-highlightWeek: day,
-gridOnClick: function (e) {
-  alert(e.name + '  ' + e.week + ', 第' + e.index + '节课, 课长' + e.length + '节');
-  console.log(e);
-},
-styles: {
-  Gheight: 50
-}
-});
-}
-//.html
-    function get_schedule() {
-
-    document.getElementById("load").style.visibility="visible";
-
-    $.ajax({
-        url:'/class_schedule/get_schedule',
-        dataType: 'JSON',
-        type: 'GET',
-        success: function(data){
-            afterAjaxSuccess(data);
-
-            //请求完成，隐藏模态框
-            document.getElementById("load").style.visibility="hidden";
-        },
-        error: function(data, status, e) {
-            alert("asd");
-            //请求完成，隐藏模态框
-            document.getElementById("load").style.visibility="hidden";
-        }
-    });
-}
-
-//切换课表
-    var schedule_PATH = '/class_schedule/get_scheduleOther';
-function onChange() {
-    document.getElementById("load").style.visibility="visible";
-    if(schedule_PATH !== '/class_schedule/get_scheduleOther'){
-        schedule_PATH = '/class_schedule/get_scheduleOther';
-    }else{
-        schedule_PATH = '/class_schedule/get_schedule';
-    }
-    $.ajax({
-        url: schedule_PATH,
-        dataType: 'JSON',
-        type: 'GET',
-        success: function(data){
-            changeScheduleSuccess(data);
-            //请求完成，隐藏模态框
-            document.getElementById("load").style.visibility="hidden";
-        },
-        error: function(data, status, e) {
-            alert("asd");
-            //请求完成，隐藏模态框
-            document.getElementById("load").style.visibility="hidden";
-        }
-    });
-}
-
-function changeScheduleSuccess(jsonData) {
-    courseListOther = jsonData;
-
-   Timetable.setOption({
-  timetables: courseListOther,
-  week: window.innerWidth > 360 ? ['周一', '周二', '周三', '周四', '周五','周六','周日'] :
-    ['一', '二', '三', '四', '五','六','日'],
-  styles: {
-	palette: ['#dedcda', '#ff4081']
-  },
-  timetableType: courseType,
-  gridOnClick: function (e) {
-  alert(e.name + '  ' + e.week + ', 第' + e.index + '节课, 课长' + e.length + '节');
-  console.log(e);
-  },
-  });
-}
-
-</script>
 <script>
     (function(window,document,undefined){
     var hearts = [];

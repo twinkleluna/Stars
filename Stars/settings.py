@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'information',
     'update_schedule',
     'search_course',
+    'create_course',
 ]
 
 MIDDLEWARE = [

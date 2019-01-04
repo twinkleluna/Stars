@@ -115,17 +115,13 @@ def search_classroom(request):
 
 
 def search_data(request):
-    month=request.POST.get('month')
-    day=request.POST.get('day')
-    print(month+' '+day)
+    weekday=request.POST['weekday']
+    print(weekday)
 
-    if month and day:
+    if weekday:
         db=pymysql.connect("140.143.234.60", "Db_team", "TikoTiko", "Class_Schedule")
         cursor=db.cursor()
 
-        import datetime;
-        weekday=datetime.datetime(2018, int(month), int(day)).strftime("%w");
-        print(weekday)
         order='select * from course where weekday=\'' + weekday+ '\';'
         print(order)
 

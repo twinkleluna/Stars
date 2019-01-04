@@ -26,4 +26,5 @@ urlpatterns = [
     path('search_course/', include('search_course.urls', namespace='search_course')),
     path('update_schedule/', include('update_schedule.urls', namespace='update_schedule')),
     path('information/', include('information.urls', namespace='information')),
+    path('create_course/', include('create_course.urls', namespace='create_course')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
