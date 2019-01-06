@@ -23,7 +23,7 @@ def search_teacher(request):
         db=pymysql.connect("140.143.234.60", "Db_team", "TikoTiko", "Class_Schedule")
         cursor=db.cursor()
 
-        order='select * from course where teacher=\'' + teacher + '\';'
+        order="select * from course where teacher LIKE '%"+teacher+"%';"
         print(order)
 
         try:

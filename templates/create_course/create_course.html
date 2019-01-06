@@ -124,6 +124,42 @@
                  </form>
             </div>
             </div>
+                                    <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Update Course</h3>
+             </div>
+            <div class="panel-body">
+                 <form class="information" action="/create_course/update_course" name="information2" method="post">
+                           {% csrf_token %}
+                     <ul>
+                         <li>
+                              <lable for="cno">cno：</lable>
+                              <input name="cno" class="text" style="color:#66C1E4 !important" type="text" required>
+                          </li>
+                       <li>
+                             <label>Selects:</label>
+                             <select name="my_option" class="form-control" style="margin-left:10%;width:300px;">
+                             <option value="cno">cname</option>
+                             <option value="teacher">teacher</option>
+                             <option value="weekday">weekday</option>
+                             <option value="start_time">start_time</option>
+                             <option value="duration">duration</option>
+                             <option value="classroom">classroom</option>
+                             </select>
+                     </li>
+                          <li>
+                              <lable for="content">content: </lable>
+                              <input name="content" class="text" style="color:#66C1E4 !important" type="text" required>
+                          </li>
+                      <li>
+                          <div class="mb2">
+                              <a class="act-but submit" href="javascript:document.information2.submit();" style="width:70%;float:left;color:#66C1E4">确认修改</a>
+                          </div>
+                       </li>
+                     </ul>
+                 </form>
+            </div>
+            </div>
              </div>
         </div>
     </div>

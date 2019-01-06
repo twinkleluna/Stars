@@ -165,3 +165,53 @@ def delete_course(request):
             db.rollback()
             db.close()
             return HttpResponse('sorry,删除失败！')
+
+# @login_required
+def update_course(request):
+    if request.method=='POST':
+        # username=request.user.username
+        username="Twinkle"
+    else:
+        return HttpResponse("???")
+
+    if username=='Twinkle':
+        cno=request.POST['cno']
+        option=request.POST['my_option']
+        content=request.POST['content']
+
+        db=pymysql.connect("140.143.234.60", "Db_team", "TikoTiko", "Class_Schedule")
+        cursor=db.cursor()
+
+        order="select * from course where cno="+cno+";"
+        print(order)
+        try:
+            cursor.execute(order)
+            db.commit()
+            valid_course=cursor.fetchall()
+            print(valid_course)
+        except:
+            db.rollback()
+            db.close()
+            return HttpResponse('sorry,更改失败！')
+        if valid_course:
+            pass
+        else:
+            db.rollback()
+            db.close()
+            return HttpResponse("Sorry,没有这个课~")
+
+        if option=='teacher' or option=='cname' or option=='classroom':
+            order1="update course set "+option+"=\'"+content+"\' where cno="+cno+";"
+        else:
+            order1="update course set "+option+"="+content+ " where cno="+cno+";"
+        print(order1)
+        try:
+            cursor.execute(order1)
+            db.commit()
+            db.rollback()
+            db.close()
+            return HttpResponse("OK,修改成功~")
+        except:
+            db.rollback()
+            db.close()
+            return HttpResponse('sorry,修改失败！')

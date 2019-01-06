@@ -167,13 +167,11 @@
                         <div class="panel-body">
                               <div style="display:flex;justify-content: space-around ">
                                {% for type_,infolist in showinfo.items %}
-                                <table name="{{ type_ }}">
-                                           <tr style="width:max-content;height:40px;margin:0px 0 0 20px;
-                                             text-align: center;vertical-align:auto;" >{{ type_ }}</tr>
+                                <table  name="table-4" id="table-4">
+                                           <tr style="font-size:22px;border-top-width: 1px;border-top-style: solid;border-top-color: rgb(211, 202, 221);" >{{ type_ }}</tr>
                                             </br>
                                       {% for info in infolist%}
-                                          <tr style="width:max-content;height:40px;margin:0 0 0 20px;
-                                           text-align: center;vertical-align:auto;" >{{ info}}</tr>
+                                          <tr style="font-size:22px;border-top-width: 1px;border-top-style: solid;border-top-color: rgb(211, 202, 221);" >{{ info}}</tr>
                                              {% if not forloop.last %} </br>{% endif %}
                                       {% endfor %}
                                  </table>

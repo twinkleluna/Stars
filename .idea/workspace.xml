@@ -2,25 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2967f7f-e19d-4ab2-8bba-dd70f760bbb9" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/create_course/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/create_course/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/create_course/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/create_course/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/create_course/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/create_course/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/create_course/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/create_course/create_course.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stars/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Stars/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stars/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Stars/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/board/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/board/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create_course/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/create_course/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create_course/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/create_course/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/search_course/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/search_course/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/board/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/board/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/class_schedule/new_timetable.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/class_schedule/new_timetable.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/information/new_information.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/information/new_information.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/create_course/create_course.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/create_course/create_course.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/search_course/search_static.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search_course/search_static.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/update_schedule/new_update.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/update_schedule/new_update.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -54,20 +41,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/search_course/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="79" column="23" lean-forward="true" selection-start-line="79" selection-start-column="23" selection-end-line="79" selection-end-column="23" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/class_schedule/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="627">
-              <caret line="54" selection-start-line="54" selection-end-line="59" />
+            <state relative-caret-position="323">
+              <caret line="25" column="72" selection-start-line="25" selection-start-column="72" selection-end-line="25" selection-end-column="72" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -78,26 +53,8 @@
       <file leaf-file-name="new_timetable.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/class_schedule/new_timetable.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1368">
+            <state relative-caret-position="2679">
               <caret line="141" column="46" selection-start-line="141" selection-start-column="46" selection-end-line="141" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="search_static.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/search_course/search_static.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="78" column="46" selection-start-line="78" selection-start-column="46" selection-end-line="78" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new_update.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/update_schedule/new_update.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="54" column="18" lean-forward="true" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -105,26 +62,19 @@
       <file leaf-file-name="create_course.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/create_course/create_course.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="93" column="68" lean-forward="true" selection-start-line="93" selection-start-column="68" selection-end-line="93" selection-end-column="68" />
-              <folding>
-                <element signature="n#style#0;n#input#0;n#li#1;n#ul#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#li#3;n#ul#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#li#4;n#ul#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#li#0;n#ul#0;n#form#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="3021">
+              <caret line="159" column="24" selection-start-line="159" selection-start-column="24" selection-end-line="159" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="new_information.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/information/new_information.html">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/create_course/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="67" column="19" lean-forward="true" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
+            <state relative-caret-position="722">
+              <caret line="205" column="4" selection-start-line="205" selection-start-column="4" selection-end-line="205" selection-end-column="4" />
               <folding>
-                <element signature="n#style#0;n#input#0;n#li#3;n#ul#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#li#4;n#ul#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#0#35#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -171,17 +121,17 @@
         <option value="$PROJECT_DIR$/information/views.py" />
         <option value="$PROJECT_DIR$/templates/board/register.html" />
         <option value="$PROJECT_DIR$/board/views.py" />
-        <option value="$PROJECT_DIR$/search_course/views.py" />
         <option value="$PROJECT_DIR$/create_course/apps.py" />
         <option value="$PROJECT_DIR$/Stars/settings.py" />
         <option value="$PROJECT_DIR$/Stars/urls.py" />
         <option value="$PROJECT_DIR$/templates/class_schedule/new_timetable.html" />
         <option value="$PROJECT_DIR$/templates/information/new_information.html" />
-        <option value="$PROJECT_DIR$/templates/search_course/search_static.html" />
         <option value="$PROJECT_DIR$/templates/update_schedule/new_update.html" />
-        <option value="$PROJECT_DIR$/create_course/views.py" />
+        <option value="$PROJECT_DIR$/search_course/views.py" />
+        <option value="$PROJECT_DIR$/templates/search_course/search_static.html" />
         <option value="$PROJECT_DIR$/create_course/urls.py" />
         <option value="$PROJECT_DIR$/templates/create_course/create_course.html" />
+        <option value="$PROJECT_DIR$/create_course/views.py" />
       </list>
     </option>
   </component>
@@ -194,8 +144,8 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="676" />
     <option name="width" value="697" />
     <option name="height" value="735" />
   </component>
@@ -488,7 +438,14 @@
       <option name="project" value="LOCAL" />
       <updated>1546416930919</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="new_version">
+      <created>1546610368560</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1546610368560</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView">
@@ -501,7 +458,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-7" y="0" width="1074" height="735" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32843137" />
@@ -509,12 +466,12 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Python Console" order="11" sideWeight="0.49848714" weight="0.5450082" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.22913256" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.5431165" weight="0.32569557" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.55813956" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.5431165" weight="0.3255814" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7754137" visible="true" weight="0.24054463" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7754137" visible="true" weight="0.085798815" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Database" order="5" weight="0.32854864" />
       <window_info anchor="right" id="SciView" order="4" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.2245863" side_tool="true" weight="0.21633889" />
@@ -532,7 +489,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="right" id="Remote Host" order="3" />
       <window_info id="Favorites" order="2" sideWeight="0.2245863" side_tool="true" visible="true" weight="0.21633889" />
       <window_info anchor="bottom" id="Thumbnails" order="12" weight="0.32843137" />
@@ -540,17 +497,17 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32843137" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.07037643" />
-      <window_info anchor="right" id="Database" order="5" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.5431165" visible="true" weight="0.30769232" />
-      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.5015129" side_tool="true" weight="0.5408497" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7754137" visible="true" weight="0.21633889" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.5431165" visible="true" weight="0.30769232" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.5015129" side_tool="true" weight="0.5408497" />
       <window_info anchor="right" id="SciView" order="4" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="bottom" id="Python Console" order="11" sideWeight="0.49848714" weight="0.54575163" />
     </layout-to-restore>
   </component>
@@ -655,9 +612,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="8" column="60" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -684,9 +638,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1045">
           <caret line="64" column="37" lean-forward="true" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -694,9 +645,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="87" column="16" lean-forward="true" selection-start-line="87" selection-start-column="16" selection-end-line="87" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -707,9 +655,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="15" column="142" selection-start-line="15" selection-start-column="142" selection-end-line="15" selection-end-column="142" />
-          <folding>
-            <element signature="e#918#982#0#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -717,9 +662,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret line="119" column="33" lean-forward="true" selection-start-line="119" selection-start-column="33" selection-end-line="119" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -763,96 +705,74 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/class_schedule/urls.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/search_course/search_static.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="304">
+          <caret line="170" column="64" selection-start-line="170" selection-start-column="64" selection-end-line="170" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/update_schedule/new_update.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="52" column="24" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/information/new_information.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-665">
+          <caret line="67" column="19" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/create_course/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="59" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="59" />
+        <state relative-caret-position="171">
+          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class_schedule/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="57" column="29" selection-start-line="57" selection-start-column="29" selection-end-line="57" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/create_course/create_course.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3021">
+          <caret line="159" column="24" selection-start-line="159" selection-start-column="24" selection-end-line="159" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/class_schedule/new_timetable.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2679">
+          <caret line="141" column="46" selection-start-line="141" selection-start-column="46" selection-end-line="141" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search_course/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="25" column="72" selection-start-line="25" selection-start-column="72" selection-end-line="25" selection-end-column="72" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/create_course/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2458">
-          <caret line="149" column="16" lean-forward="true" selection-start-line="149" selection-start-column="16" selection-end-line="149" selection-end-column="16" />
+        <state relative-caret-position="722">
+          <caret line="205" column="4" selection-start-line="205" selection-start-column="4" selection-end-line="205" selection-end-column="4" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/class_schedule/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="54" selection-start-line="54" selection-end-line="59" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/search_course/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="79" column="23" lean-forward="true" selection-start-line="79" selection-start-column="23" selection-end-line="79" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/class_schedule/new_timetable.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1368">
-          <caret line="141" column="46" selection-start-line="141" selection-start-column="46" selection-end-line="141" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/create_course/create_course.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="93" column="68" lean-forward="true" selection-start-line="93" selection-start-column="68" selection-end-line="93" selection-end-column="68" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#li#1;n#ul#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#li#3;n#ul#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#li#4;n#ul#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#li#0;n#ul#0;n#form#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/information/new_information.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="67" column="19" lean-forward="true" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#li#3;n#ul#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#li#4;n#ul#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/search_course/search_static.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="78" column="46" selection-start-line="78" selection-start-column="46" selection-end-line="78" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/update_schedule/new_update.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="54" column="18" lean-forward="true" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
         </state>
       </provider>
     </entry>
